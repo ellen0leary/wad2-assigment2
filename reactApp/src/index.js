@@ -26,6 +26,7 @@ import LatestContextProvider from "./contexts/lastestContext";
 import AuthContextProvider from "./contexts/authorizationContext";
 import LoginPage from "./pages/loginPage"
 import ProfilePage from "./pages/profilePage"
+import SignUpPage from "./pages/SignUpPage"
 
 const App = () => {
   return (
@@ -53,7 +54,7 @@ const App = () => {
                   <Route exact path="/movies/latest" component={LatestPage} />
                   <Route exact path = "/profile" component={ProfilePage}></Route>
                   <Route path = "/login" component={LoginPage}></Route>
-                  {/* <Route exact path = "/signUp" component={}></Route> */}
+                  <Route exact path = "/signUp" component={SignUpPage}></Route>
                   <Route path="/movies/:id" component={MoviePage} />
                   <Route path="/" component={HomePage} />
                   <Redirect from="*" to="/" />
