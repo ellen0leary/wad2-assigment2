@@ -22,12 +22,18 @@ import NowPlayingContextProvider from "./contexts/nowPlaying";
 import LatestPage from "./pages/latestPage";
 import LatestContextProvider from "./contexts/lastestContext";
 
+
+import AuthContextProvider from "./contexts/authorizationContext";
+import LoginPage from "./pages/loginPage"
+
+
 const App = () => {
   return (
       <BrowserRouter>
         <div className="jumbotron">
           <SiteHeader />     
           <div className="container-fluid">
+            <AuthContextProvider>
             <MoviesContextProvider>
               <RecommenedContextProvider>
               <GenresContextProvider>
@@ -45,6 +51,9 @@ const App = () => {
                   <Route exact path="/movies/topRated" component={TopRatedPeople} />
                   <Route exact path="/movies/nowPlaying" component={NowPlayingPage} />
                   <Route exact path="/movies/latest" component={LatestPage} />
+                  <Route exact path = "/profile" component={LoginPage}></Route>
+                  {/* <Route exact path = "/login" compinent={}></Route> */}
+                  {/* <Route exact path = "/signUp" compinent={}></Route> */}
                   <Route path="/movies/:id" component={MoviePage} />
                   <Route path="/" component={HomePage} />
                   <Redirect from="*" to="/" />
@@ -56,6 +65,7 @@ const App = () => {
               </GenresContextProvider>
               </RecommenedContextProvider>
             </MoviesContextProvider>
+            </AuthContextProvider>
           </div>
         </div>
       </BrowserRouter>

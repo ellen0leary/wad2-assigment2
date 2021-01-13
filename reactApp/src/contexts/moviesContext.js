@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, useReducer } from "react";
+import React, { useState, useEffect, createContext, useReducer } from "react";
 import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
 import {getMovie} from "../api/movies-api"
 export const MoviesContext = createContext(null);
@@ -39,6 +39,7 @@ const reducer = (state, action) => {
 
 const MoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [] });
+  const [authebticated, setAuthenticated] = useState(false);
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
@@ -63,7 +64,7 @@ const MoviesContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    getUpcomingMovies().then((movies) => {
+    getMovies().then((movies) => {
       dispatch({ type: "load-upcoming", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,6 +78,7 @@ const MoviesContextProvider = (props) => {
         addToFavorites: addToFavorites,
         addToWatchList : addToWatchList,
         addReview: addReview,
+        setAuthenticated
       }}
     >
       {props.children}
