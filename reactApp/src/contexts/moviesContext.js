@@ -1,6 +1,6 @@
 import React, { useEffect, createContext, useReducer } from "react";
 import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
-
+import {getMovie} from "../api/movies-api"
 export const MoviesContext = createContext(null);
 
 const reducer = (state, action) => {
@@ -55,7 +55,8 @@ const MoviesContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getMovies().then((movies) => {
+    getMovie().then((movies) => {
+      console.log(movies);
       dispatch({ type: "load", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
