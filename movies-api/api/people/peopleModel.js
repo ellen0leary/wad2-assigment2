@@ -17,7 +17,11 @@ const PeopleSchema = new Schema({
     adult : {type: Boolean},
     imdb_id : {type:String},
     homepage: {type: String}
-})
+});
+
+PeopleSchema.statics.findPersonByID = function (id) {
+    return this.findOne({ id: id });
+  };
 
 
 export default mongoose.model('People', PeopleSchema);
