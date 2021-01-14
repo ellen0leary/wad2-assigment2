@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import {getMovie} from '../api/movies-api'
+import {getMovieDetails} from '../api/movies-api'
 
 const useMovie = id => {
   const [movie, setMovie] = useState(null);
   useEffect(() => {
-    getMovie(id).then(movie => {
+    getMovieDetails(id).then(movie => {
+      console.log(movie)
       setMovie(movie);
     });
   }, [id]);

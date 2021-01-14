@@ -11,7 +11,7 @@ export default ({ movie }) => {
           Runtime (min.)
         </li>
         <li key="rut" className="list-group-item ">
-          {movie.runtime}
+          {movie.runtime.toString()}
         </li>
         <li key="rdh" className="list-group-item list-group-item-dark">
           Release Date
@@ -25,7 +25,7 @@ export default ({ movie }) => {
         <li key="gh" className="list-group-item list-group-item-dark">
           Genres
         </li>
-        {movie.genres.map(g => (
+        {movie.genre_ids.map(g => (
           <li key={g.name} className="list-group-item">
             {g.name}
           </li>
@@ -45,22 +45,13 @@ export default ({ movie }) => {
         <li key="pch" className="list-group-item list-group-item-dark">
           Production Companies
         </li>
-        {movie.production_companies.map(pc => (
-          <li key={pc.name} className="list-group-item">
-            {pc.name}
-          </li>
-        ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="pcou" className="list-group-item list-group-item-dark">
-          Production Countries
-        </li>
         {movie.production_countries.map(pc => (
           <li key={pc.name} className="list-group-item">
             {pc.name}
           </li>
         ))}
       </ul>
+      
     </>
   );
 };
