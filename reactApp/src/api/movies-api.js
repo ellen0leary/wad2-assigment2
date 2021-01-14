@@ -27,6 +27,14 @@ export const getMovie = () => {
     ).then(res => res.json());
   };
 
+  export const getUpcoming = () => {
+    return fetch(
+      '/api/movies/upcoming',{headers: {
+        'Authorization': window.localStorage.getItem('token')
+     }
+   }
+   ).then(res => console.log(res));
+  }
   export const getMovieDetails = id => {
     return fetch(
        `/api/movies/${id}`,{headers: {

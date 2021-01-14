@@ -23,7 +23,7 @@ router.get('/:id/reviews', (req, res, next) => {
 });
 
 router.get('/upcoming', (req, res,next) => {
-  movieModel.find().findUpcoming().then(movie => res.status(200).send(movie)).catch(next);
+  movieModel.findUpcoming().then(movie => res.status(200).send(movie)).catch(next);
 });
 router.get('/genres', (req, res,next) => {
   getGenres().then(movies => res.status(200).send(movies))

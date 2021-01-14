@@ -11,7 +11,7 @@ export default ({ movie }) => {
           Runtime (min.)
         </li>
         <li key="rut" className="list-group-item ">
-          {movie.runtime.toString()}
+          {movie.runtime}
         </li>
         <li key="rdh" className="list-group-item list-group-item-dark">
           Release Date

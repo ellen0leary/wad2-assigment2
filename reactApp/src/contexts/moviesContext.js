@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useReducer } from "react";
 import { getUpcomingMovies } from "../api/tmdb-api";
-import {getMovie, } from "../api/movies-api"
+import {getMovie, getUpcoming} from "../api/movies-api"
 import AuthContext from "../contexts/authorizationContext"
 
 export const MoviesContext = createContext(null);
