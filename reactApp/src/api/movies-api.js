@@ -41,8 +41,16 @@ export const getMovie = () => {
          'Authorization': window.localStorage.getItem('token')
       }
     }
-    ).then(res => res.json().then(console.log(res)));
+    ).then(res => res.json());
   };
+
+  export const getMovieReviews = id => {
+    return fetch(
+      `/api/movies/${id}/reviews`, {headers: {
+        'Authorization': window.localStorage.getItem('token')
+      }}
+    ).then(res => res.json().then(console.log(res)));
+  }
 
   export const addToFavourites = (userId, movieId) => {
     console.log(userId);

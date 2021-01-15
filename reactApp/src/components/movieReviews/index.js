@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getMovieReviews } from "../../api/tmdb-api";
+import { getMovieReviews } from "../../api/movies-api";
 import { excerpt } from "../../util";
 
 export default ({ movie }) => {
@@ -8,7 +8,8 @@ export default ({ movie }) => {
 
   useEffect(() => {
     getMovieReviews(movie.id).then(reviews => {
-      setReviews(reviews);
+      setReviews(reviews.reviews);
+      console.log(reviews)
     });
   }, [movie.id]);
   return (
@@ -17,15 +18,17 @@ export default ({ movie }) => {
         <tr>
           <th scope="col">Author</th>
           <th scope="col">Excerpt</th>
+          <th scope="col">Rating</th>
           <th scope="col">More</th>
         </tr>
       </thead>
       <tbody>
         {reviews.map(r => {
             return (
-              <tr key={r.id}>
-                <td>{r.author}</td>
-                <td>{excerpt(r.content)}</td>
+              <tr key={r.movieId}>
+                <td>{r.authorName}</td>
+                <td>{excerpt(r.description)}</td>
+                <td>{r.rating}</td>
                 <td>
                   {" "}
                   <Link

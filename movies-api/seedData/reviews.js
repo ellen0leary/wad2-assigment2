@@ -13,6 +13,11 @@ export const reviews = [
             authorName: "Kristy Akhtar",
             rating : 3,
             description :"Upside-Down Magic"
+        },
+        {
+            authorName: "Krsty Akhtar",
+            rating : 5,
+            description :"Upside-Down Magic"
         }] 
      },
      {
