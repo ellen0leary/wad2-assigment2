@@ -52,12 +52,12 @@ const SiteHeader = () => {
               Recommened
             </Link>
           </li> */}
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <Link className="nav-link text-white" to="/movies/trending">
               Trending movies
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link text-white" to="/movies/topRated">
               Top Rated
             </Link>

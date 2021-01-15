@@ -43,12 +43,17 @@ export const getMovie = () => {
     }
     ).then(res => res.json().then(console.log(res)));
   };
-  export const addFavourites = () => {
+
+  export const addToFavourites = (userId, movieId) => {
+    console.log(userId);
+    console.log(movieId);
     return fetch(
-      `api/user/{userId}/favourites`,{headers: {
-         'Authorization': window.localStorage.getItem('token')
-      },
-      method : 'post'
+      `api/users/${userId}/favourites/${movieId}`,{
+        headers: {
+          'Authorization': window.localStorage.getItem('token')
+        },
+        method: 'post',
+        body: JSON.stringify({ "id": `${movieId}`})
     }
     ).then(res => res.json());
   };
@@ -56,6 +61,15 @@ export const getMovie = () => {
   export const getFavourites = (userId) => {
     return fetch(
         `api/user/{userId}/favourites`,{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getTrending = (userId) => {
+    return fetch(
+        `api/people/`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }

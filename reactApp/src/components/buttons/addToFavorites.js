@@ -6,6 +6,7 @@ const AddToFavoriteButton = ({ movie }) => {
 
   const handleAddToFavorite = e => {
     e.preventDefault();
+    console.log(movie.id);
     context.addToFavorites(movie.id);
   };
   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, createContext, useReducer } from "react";
 import { getTrendingMovie, getUpcomingMovies } from "../api/tmdb-api";
+import {getTrending} from "../api/movies-api"
 
 export const TrendingContext = createContext(null);
 
@@ -55,7 +56,7 @@ const TrendingContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getTrendingMovie().then((movies) => {
+    getTrending().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -54,7 +54,6 @@ export const movies = [
         "popularity": 1973.492,
         "poster_path": "/k68nPLbIST6NP96JmTxmZijEvCA.jpg",
         "release_date": "2020-08-22",
-        "runtime": 54,
         "title": "Tenet",
         "video": false,
         "vote_average": 7.4,
