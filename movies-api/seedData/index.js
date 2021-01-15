@@ -3,8 +3,11 @@ import genreModel from '../api/genres/genresModel';
 import genresModel from '../api/genres/genresModel';
 import movieModel from '../api/movies/movieModel';
 import peopleModel from '../api/people/peopleModel';
+import reviewModel from '../api/reviews/reviewModel';
+
 import {movies} from './movies.js';
 import {people} from './people.js';
+import {reviews} from './reviews.js';
 
 const users = [
     {
@@ -61,6 +64,18 @@ export async function loadPeople(){
     await peopleModel.deleteMany();
     await peopleModel.collection.insertMany(people);
     console.info(`${people.length} people were successfully stored.`);
+  }catch(err){
+    console.error(`failed to Laod people Data: ${err}`);
+  }
+}
+
+export async function loadReview(){
+  console.log("load review data");
+  console.log(reviews.length);
+  try {
+    await reviewModel.deleteMany();
+    await reviewModel.collection.insertMany(reviews);
+    console.info(`${reviews.length} reviews were successfully stored.`);
   }catch(err){
     console.error(`failed to Laod people Data: ${err}`);
   }
