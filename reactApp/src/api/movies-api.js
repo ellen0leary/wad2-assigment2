@@ -52,6 +52,18 @@ export const getMovie = () => {
     ).then(res => res.json().then(console.log(res)));
   }
 
+  export const addMovieReview = (movieId, data) => {
+    console.log(`authorName: ${data.author}, rating :${parseInt(data.rating)}, description: ${data.content}`)
+    return fetch(
+      `/api/movies/${movieId}/reviews`, {headers: {
+        'Content-Type': 'application/json'
+    },
+    method: 'post',
+    body: JSON.stringify({authorName: data.author, rating :parseInt(data.rating), description: data.content})
+  }).then(res => res.json())
+  }
+
+
   export const addToFavourites = (userId, movieId) => {
     console.log(userId);
     console.log(movieId);

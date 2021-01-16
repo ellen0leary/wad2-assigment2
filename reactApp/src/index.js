@@ -43,7 +43,7 @@ const App = () => {
                     <NowPlayingContextProvider>
                       <LatestContextProvider>
                 <Switch>
-                <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                <Route  path="/reviews/form" component={AddMovieReviewPage} />
                   <Route path="/reviews/:id" component={MovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavouriteMoviesPage} />
                   <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />

@@ -21,7 +21,7 @@ const ReviewForm = ({ movie, history }) => {
           type="text"
           className="form-control"
           placeholder="Author"
-          defaultValue={movie.review ? movie.review.author : ""}
+          defaultValue={movie.review ? movie.review.authorName : ""}
           name="author"
           ref={register({ required: "Author name required" })}
         />
@@ -29,11 +29,25 @@ const ReviewForm = ({ movie, history }) => {
       {errors.author && <p className=" text-white">{errors.author.message} </p>}
       <div className="form-group">
         <textarea
+          rows="1"
+          type="number"
+          className="form-control"
+          placeholder="Give a rating"
+          defaultValue={movie.review ? movie.review.rating : ""}
+          name="rating"
+          ref={register({
+            required: "No rating given",
+            minLength: { value: 0, message: "Review is too short" }
+          })}
+        />
+      </div>
+      <div className="form-group">
+        <textarea
           rows="10"
           type="text"
           className="form-control"
           placeholder="Write your review"
-          defaultValue={movie.review ? movie.review.content : ""}
+          defaultValue={movie.review ? movie.review.description : ""}
           name="content"
           ref={register({
             required: "No review text",
@@ -44,7 +58,6 @@ const ReviewForm = ({ movie, history }) => {
       {errors.content && (
         <p className="text-white">{errors.content.message} </p>
       )}
-
       <button type="submit" className="btn btn-primary">
         Submit
       </button>

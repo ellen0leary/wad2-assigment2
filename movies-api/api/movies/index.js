@@ -23,6 +23,19 @@ router.get('/:id/reviews', (req, res, next) => {
   .catch((error) => next(error));
 });
 
+router.post('/:id/reviews', (req, res, next) =>{
+  const id = parseInt(req.params.id);
+  const newReview = reviewModel.findByReviewsId(id);
+  console.log(req.body);
+  console.log(newReview);
+  newReview.reviews.push(req.body);
+  res.status(201).json({
+    code: 201,
+    msg: 'Successful added reiew.',
+  });
+  newReview.save(); 
+});
+
 router.get('/upcoming', (req, res,next) => {
   movieModel.findUpcoming().then(movie => res.status(200).send(movie)).catch(next);
 });

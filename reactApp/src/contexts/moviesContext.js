@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, createContext, useReducer } from "react";
 import { getUpcomingMovies } from "../api/tmdb-api";
-import {getMovie, getUpcoming, addToFavourites} from "../api/movies-api"
+import {getMovie, getUpcoming, addToFavourites, addMovieReview} from "../api/movies-api"
 import {AuthContext} from "./authorizationContext"
 
 export const MoviesContext = createContext(null);
@@ -58,6 +58,9 @@ const MoviesContextProvider = (props) => {
   };
 
   const addReview = (movie, review) => {
+    console.log(`movie = ${movie.id}`)
+    console.log(review)
+    addMovieReview(movie.id, review)
     dispatch({ type: "add-review", payload: { movie, review } });
   };
 
