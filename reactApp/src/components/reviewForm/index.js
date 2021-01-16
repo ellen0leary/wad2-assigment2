@@ -9,7 +9,7 @@ const ReviewForm = ({ movie, history }) => {
   const context = useContext(MoviesContext);
 
   const onSubmit = data => {
-    context.addReview(movie, data)
+    context.addReview(movie, data.authorName, data.rating, data.description)
     history.push("/movies/favorites");
   };
 
@@ -22,7 +22,7 @@ const ReviewForm = ({ movie, history }) => {
           className="form-control"
           placeholder="Author"
           defaultValue={movie.review ? movie.review.authorName : ""}
-          name="author"
+          name="authorName"
           ref={register({ required: "Author name required" })}
         />
       </div>
@@ -48,7 +48,7 @@ const ReviewForm = ({ movie, history }) => {
           className="form-control"
           placeholder="Write your review"
           defaultValue={movie.review ? movie.review.description : ""}
-          name="content"
+          name="description"
           ref={register({
             required: "No review text",
             minLength: { value: 10, message: "Review is too short" }

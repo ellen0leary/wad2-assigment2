@@ -52,14 +52,14 @@ export const getMovie = () => {
     ).then(res => res.json().then(console.log(res)));
   }
 
-  export const addMovieReview = (movieId, data) => {
-    console.log(`authorName: ${data.author}, rating :${parseInt(data.rating)}, description: ${data.content}`)
+  export const addMovieReview = (movieId, name, rating, description) => {
     return fetch(
       `/api/movies/${movieId}/reviews`, {headers: {
+        'Authorization': window.localStorage.getItem('token'),
         'Content-Type': 'application/json'
     },
     method: 'post',
-    body: JSON.stringify({authorName: data.author, rating :parseInt(data.rating), description: data.content})
+    body: JSON.stringify({authorName: name, rating :rating, description: description})
   }).then(res => res.json())
   }
 
@@ -70,7 +70,7 @@ export const getMovie = () => {
     return fetch(
       `api/users/${userId}/favourites/${movieId}`,{
         headers: {
-          'Authorization': window.localStorage.getItem('token')
+          'Authorization': window.localStorage.getItem('token'),
         },
         method: 'post',
         body: JSON.stringify({ "id": `${movieId}`})

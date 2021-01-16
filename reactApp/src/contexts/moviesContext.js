@@ -57,11 +57,10 @@ const MoviesContextProvider = (props) => {
     dispatch({ type: "add-watchlist", payload: { upcoming: state.movies[index] } });
   };
 
-  const addReview = (movie, review) => {
+  const addReview = (movie, name, rating , description) => {
     console.log(`movie = ${movie.id}`)
-    console.log(review)
-    addMovieReview(movie.id, review)
-    dispatch({ type: "add-review", payload: { movie, review } });
+    addMovieReview(movie.id, name, rating , description)
+    dispatch({ type: "add-review", payload: { movie, name } });
   };
 
   useEffect(() => {

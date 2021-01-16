@@ -23,17 +23,25 @@ router.get('/:id/reviews', (req, res, next) => {
   .catch((error) => next(error));
 });
 
-router.post('/:id/reviews', (req, res, next) =>{
+router.post('/:id/reviews', async(req, res, next) =>{
   const id = parseInt(req.params.id);
-  const newReview = reviewModel.findByReviewsId(id);
+  console.log(id);
+  const newReview =  await reviewModel.findByReviewsId(id);
   console.log(req.body);
-  console.log(newReview);
+  console.log(newReview.movieId);
+  if(!newReview) {
+    res.status(400).json({
+      code: 400,
+      msg: 'Unable to find movie.',
+    });
+    return;
+  }
   newReview.reviews.push(req.body);
-  res.status(201).json({
+   await newReview.save(); 
+   res.status(201).json({
     code: 201,
     msg: 'Successful added reiew.',
   });
-  newReview.save(); 
 });
 
 router.get('/upcoming', (req, res,next) => {

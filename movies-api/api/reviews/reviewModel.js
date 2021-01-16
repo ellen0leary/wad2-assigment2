@@ -6,7 +6,7 @@ const ReviewSchema = new Schema({
     movieID : {type: Number},
     reviews : [{
         authorName: {type: String},
-        rating: { type: Number},
+        rating: { type:String},
         description: {type: String}
     }]
 });
