@@ -10,30 +10,31 @@ Name: Ellen O Leary (20084694 - Applied Computing)
 
 
 ## Installation Requirements
-Describe what needs to be on the machine to run the API (Node v?, NPM, MongoDB instance, any other 3rd party software not in the package.json).
-
-Describe getting/installing the software, perhaps:
-
+The installition of this app is not complicated. Here are the steps 
 git clone http:\myrepo.git
 followed by installation
+You may need to run   npm install    on your apps
 
 git install
 ## API Configuration
-Describe any configuration that needs to take place before running the API. For example, creating an .env and what variables to put in it. Give an example of how this might be structured/done. REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB, just placeholders as indicated below:
+You will need a .env file before running this project. Here is what i had in my. This was in my movies api app
 
 NODE_ENV=development
 PORT=8080
-HOST=
+HOST=localhost
+TMDB_KEY=
 mongoDB=YourMongoURL
+MONGO_DB=YourMongoURL
 seedDb=true
 secret=YourJWTSecret
 
+
+in my react app i had a .env file with this
+
+REACT_APP_TMDB_KEY=
  ## API Design
 Give an overview of your web API design, perhaps similar to the following:
 
-  	          
-/api/movies/{movieid}	Get a Movie	N/A	N/A	N/A
-/api/movies/{movieid}/reviews	Get all reviews for movie	Create a new review for Movie	N/A	N/A
 
 |   |   GET	 |  POST |   PUT	DELETE |  
 |---|---|---|---|
