@@ -37,11 +37,11 @@ Give an overview of your web API design, perhaps similar to the following:
 
 |   |   GET	 |  POST |   PUT	DELETE |  
 |---|---|---|---|
-| /api/movies  |  Gets a list of movies |N/A   |  N/A |   
-|   |   |   |   |   
-|   |   |   |   |  
-...	...	...	...	...
-If you have your API design on an online platform or graphic, please link to it (e.g. Swaggerhub).
+| /api/movies  |  Gets a list of movies - if ?action=latest the movies will be sorted in asscending order |N/A   |  N/A |   
+|  /api/movies/{movieid} | Finds a movie with the same id  | N/A  |  N/A |   
+| /api/movies/{movieid}/reviews	  | Gets all reviews related to a movie  | Adds a review to a movie  | N/A  |  
+|---|---|---|---|
+
 
 ## Security and Authentication
 Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
