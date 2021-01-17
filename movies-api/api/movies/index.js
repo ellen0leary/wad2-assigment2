@@ -7,17 +7,15 @@ import reviewModel from '../reviews/reviewModel';
 
 const router = express.Router();
 
+
+
 router.get('/', (req, res, next) => {
-  console.log("start");
-  movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
+  if(req.query.action === 'latest'){
+    movieModel.find().sort({ release_date: 1}).then(movies =>res.status(200).send(movies)).catch(next);
+  } else {
+  movieModel.find().then(movies => res.status(200).send(movies)).catch(next);}
 });
 
-router.get('/upcoming', (req, res, next) => {
-  var today = new Date();
-  const date = today.getFullYear+ '-' + (today.getMonth() + 1) + '-' + today.getDate();
-  console.log("here");
-  movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
-});
 
 router.get('/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
@@ -65,4 +63,11 @@ router.get('/genres', (req, res,next) => {
 //     Trend[i] = num;
 //   }
 // });
+
+var date_sort_asc = function (date1, date2) {
+  if (date1 > date2) return 1;
+  if (date1 < date2) return -1;
+  return 0;
+};
+
 export default router;
