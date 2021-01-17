@@ -58,11 +58,11 @@ router.get('/genres', (req, res,next) => {
   .catch((error) => next(error));
 });
 
-router.get('/trending', (req, res, next) =>{
-  var Trend = new Array(5);
-  for(var i = 0; i< 20; i++){
-    const num = Math.floor(Math.random() * Math.floor(20));
-    Trend[i] = num;
-  }
-});
+// router.get('/trending', (req, res, next) =>{
+//   var Trend = new Array(5);
+//   for(var i = 0; i< 20; i++){
+//     const num = Math.floor(Math.random() * Math.floor(20));
+//     Trend[i] = num;
+//   }
+// });
 export default router;

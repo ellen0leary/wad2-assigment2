@@ -92,7 +92,7 @@ export const getMovie = () => {
 
   export const getTrending = () => {
     return fetch(
-        `api/people/`,{headers: {
+        `/api/people/`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }

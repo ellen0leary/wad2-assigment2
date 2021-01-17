@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
-import MovieList from "../movieList";
+import PersonList from "../personList";
 import FilterControls from "../filterControls";
 
 const TrendingPageTemplate = ({ movies, title, action }) => {
@@ -26,10 +26,10 @@ const TrendingPageTemplate = ({ movies, title, action }) => {
     <>
       <Header title={title} numMovies={displayedMovies.length} />
       <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
-      <MovieList
+      <PersonList
         action={action}
         movies={displayedMovies}
-      ></MovieList>
+      ></PersonList>
     </>
   );
 };
