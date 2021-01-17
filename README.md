@@ -65,18 +65,16 @@ Describe how you integrated your React app with the API. Perhaps link to the Rea
 
 To link my react app with my movies-api app, i put a proxy link to the movies api in the react app's packet.json file. It looked like this:
 ![][proxy]
-export const getMovies = () => {
-  return fetch(
-     '/api/movies',{headers: {
-       'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  )
-    .then(res => res.json())
-    .then(json => {return json.results;});
-};
 
+in order to call my movies-api app from my react app, i created a file in react app and added fetch request in to the file. These fetch request went to specific pathss in the movies-api.
+Here are some examples of the fetch requests :
+![][fetch1]
+
+
+![][fetch2]
 
 ---------------------------------
 [routes]: ./public/routes.png
-[proxey]: ./public/proxy.png
+[proxy]: ./public/proxy.png
+[fetch1]: ./public/fetch1.png
+[fetch2]: ./public/fetch2.png
