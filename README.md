@@ -55,11 +55,16 @@ api/user/{id}/favourites|allows a user to see favourites|allows the user to add 
 
 
 ## Security and Authentication
-Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
+I used JSON Web token to add authication to my app.
+I also protected some of my apps routes, such as the review form, latest movies page and profile page
 
-Integrating with React App
+![][routes]
+
+## Integrating with React App
 Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. For example:
 
+To link my react app with my movies-api app, i put a proxy link to the movies api in the react app's packet.json file. It looked like this:
+![][proxy]
 export const getMovies = () => {
   return fetch(
      '/api/movies',{headers: {
@@ -71,8 +76,7 @@ export const getMovies = () => {
     .then(json => {return json.results;});
 };
 
-Extra features
-. . Briefly explain any non-standard features, functional or non-functional, developed for the app.
 
-Independent learning.
-. . State the non-standard aspects of React/Express/Node (or other related technologies) that you researched and applied in this assignment . .
+---------------------------------
+[routes]: ./public/routes.png
+[proxey]: ./public/proxy.png

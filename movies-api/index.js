@@ -3,7 +3,7 @@ import express from 'express';
 import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
 import './db';
-import {loadUsers, loadMovies, loadPeople, loadReviews, loadReview} from './seedData';
+import {loadUsers, loadMovies, loadPeople, loadReview} from './seedData';
 
 import usersRouter from './api/users';
 import genresRouter from './api/genres';

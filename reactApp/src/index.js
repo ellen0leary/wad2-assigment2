@@ -26,7 +26,7 @@ import AuthContextProvider from "./contexts/authorizationContext";
 import LoginPage from "./pages/loginPage"
 import ProfilePage from "./pages/profilePage"
 import SignUpPage from "./pages/SignUpPage"
-import PrivateRoute from "../src/pages/privateRoute";
+import PrivateRoute from "./contexts/privateRoute";
 
 const App = () => {
   return (
@@ -50,8 +50,6 @@ const App = () => {
                   <Route exact path="/movies/:id/recommened" component={RecommendMovies} />
                   <Route exact path="/movies/trending" component={TrendingMovies} />
                   <Route exact path="/movies/trending/:id" component={PeopleDetailsPage} />
-                  <Route exact path="/movies/topRated" component={TopRatedPeople} />
-                  <Route exact path="/movies/nowPlaying" component={NowPlayingPage} />
                   <PrivateRoute exact path = "/profile" component={ProfilePage}></PrivateRoute>
                   <Route path = "/login" component={LoginPage}></Route>
                   <Route exact path = "/signUp" component={SignUpPage}></Route>
