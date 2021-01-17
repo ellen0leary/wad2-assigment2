@@ -39,12 +39,12 @@ export const getMovie = () => {
   
   export const getMovieDetails = id => {
     return fetch(
-       `/api/movies/${id}`,{headers: {
-         'Authorization': window.localStorage.getItem('token')
-      }
-    }
-    ).then(res => res.json());
+      `/api/movies/${id}`, {headers: {
+        'Authorization': window.localStorage.getItem('token')
+      }}
+    ).then(res => res.json().then(console.log(res)));
   };
+
 
   export const getMovieReviews = id => {
     return fetch(
@@ -52,7 +52,7 @@ export const getMovie = () => {
         'Authorization': window.localStorage.getItem('token')
       }}
     ).then(res => res.json().then(console.log(res)));
-  }
+  };
 
   export const addMovieReview = (movieId, name, rating, description) => {
     return fetch(
@@ -93,6 +93,15 @@ export const getMovie = () => {
   export const getTrending = () => {
     return fetch(
         `/api/people/`,{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getPersonDetails = id => {
+    return fetch(
+       `/api/people/${id}`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }

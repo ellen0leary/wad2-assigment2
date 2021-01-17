@@ -19,9 +19,9 @@ import TopRatedPeople from "./pages/topRatedPage";
 import TopRatedContextProvider from "./contexts/topRatedContext";
 import NowPlayingPage from "./pages/nowPlayingPage";
 import NowPlayingContextProvider from "./contexts/nowPlaying";
-import LatestPage from "./pages/latestPage";
+//import LatestPage from "./pages/latestPage";
 import LatestContextProvider from "./contexts/lastestContext";
-
+import PeopleDetailsPage from "./pages/peopleDetailsPage"
 
 import AuthContextProvider from "./contexts/authorizationContext";
 import LoginPage from "./pages/loginPage"
@@ -49,9 +49,9 @@ const App = () => {
                   <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />
                   <Route exact path="/movies/:id/recommened" component={RecommendMovies} />
                   <Route exact path="/movies/trending" component={TrendingMovies} />
+                  <Route exact path="/movies/trending/:id" component={PeopleDetailsPage} />
                   <Route exact path="/movies/topRated" component={TopRatedPeople} />
                   <Route exact path="/movies/nowPlaying" component={NowPlayingPage} />
-                  <Route exact path="/movies/latest" component={LatestPage} />
                   <Route exact path = "/profile" component={ProfilePage}></Route>
                   <Route path = "/login" component={LoginPage}></Route>
                   <Route exact path = "/signUp" component={SignUpPage}></Route>

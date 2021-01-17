@@ -9,7 +9,7 @@ const personCard = ({movie, action}) => {
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
-      <Link to={`/movies/${movie.id}`}>
+      <Link to={`/movies/trending/${movie.id}`}>
         <img
           className="card-img-tag center "
           alt={movie.title}
@@ -21,7 +21,7 @@ const personCard = ({movie, action}) => {
         />
         </Link>
         <div className="card-body">
-          <h4 className="card-title ">{movie.title}</h4>
+          <h4 className="card-title ">{movie.name}</h4>
           <p>
             <FontAwesomeIcon icon={["fas", "calendar"]} />
             <span> {movie.birthday}</span>

@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect, createContext, useReducer } from "react";
-import { getUpcomingMovies } from "../api/tmdb-api";
 import {getMovie, getUpcoming, addToFavourites, addMovieReview} from "../api/movies-api"
 import {AuthContext} from "./authorizationContext"
 
