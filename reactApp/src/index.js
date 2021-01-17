@@ -19,7 +19,6 @@ import TopRatedPeople from "./pages/topRatedPage";
 import TopRatedContextProvider from "./contexts/topRatedContext";
 import NowPlayingPage from "./pages/nowPlayingPage";
 import NowPlayingContextProvider from "./contexts/nowPlaying";
-//import LatestPage from "./pages/latestPage";
 import LatestContextProvider from "./contexts/lastestContext";
 import PeopleDetailsPage from "./pages/peopleDetailsPage"
 
@@ -27,6 +26,7 @@ import AuthContextProvider from "./contexts/authorizationContext";
 import LoginPage from "./pages/loginPage"
 import ProfilePage from "./pages/profilePage"
 import SignUpPage from "./pages/SignUpPage"
+import PrivateRoute from "../src/pages/privateRoute";
 
 const App = () => {
   return (
@@ -43,16 +43,16 @@ const App = () => {
                     <NowPlayingContextProvider>
                       <LatestContextProvider>
                 <Switch>
-                <Route  path="/reviews/form" component={AddMovieReviewPage} />
+                <PrivateRoute  path="/reviews/form" component={AddMovieReviewPage} />
                   <Route path="/reviews/:id" component={MovieReviewPage} />
                   <Route exact path="/movies/favorites" component={FavouriteMoviesPage} />
-                  <Route exact path="/movies/upcoming" component={UpcomingMoviePage} />
+                  <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviePage} />
                   <Route exact path="/movies/:id/recommened" component={RecommendMovies} />
                   <Route exact path="/movies/trending" component={TrendingMovies} />
                   <Route exact path="/movies/trending/:id" component={PeopleDetailsPage} />
                   <Route exact path="/movies/topRated" component={TopRatedPeople} />
                   <Route exact path="/movies/nowPlaying" component={NowPlayingPage} />
-                  <Route exact path = "/profile" component={ProfilePage}></Route>
+                  <PrivateRoute exact path = "/profile" component={ProfilePage}></PrivateRoute>
                   <Route path = "/login" component={LoginPage}></Route>
                   <Route exact path = "/signUp" component={SignUpPage}></Route>
                   <Route path="/movies/:id" component={MoviePage} />
