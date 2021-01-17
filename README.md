@@ -2,7 +2,6 @@
 Name: Ellen O Leary (20084694 - Applied Computing)
 
 ## Features.
-...... A bullet-point list of the ADDITIONAL features you have implemented in the API THAT WERE NOT IN THE LABS ......,
 
 + Feature 1 - The user is able to see all information related to a movie, including its reviews, by clicking on in
 + Feature 2 - The user is able to write a review for a movie on their favourites list
@@ -32,10 +31,15 @@ secret=YourJWTSecret
  ## API Design
 Give an overview of your web API design, perhaps similar to the following:
 
-GET	POST	PUT	DELETE
-/api/movies	Gets a list of movies	N/A	N/A	 
+  	          
 /api/movies/{movieid}	Get a Movie	N/A	N/A	N/A
 /api/movies/{movieid}/reviews	Get all reviews for movie	Create a new review for Movie	N/A	N/A
+
+|   |   GET	 |  POST |   PUT	DELETE |  
+|---|---|---|---|
+| /api/movies  |  Gets a list of movies |N/A   |  N/A |   
+|   |   |   |   |   
+|   |   |   |   |  
 ...	...	...	...	...
 If you have your API design on an online platform or graphic, please link to it (e.g. Swaggerhub).
 
