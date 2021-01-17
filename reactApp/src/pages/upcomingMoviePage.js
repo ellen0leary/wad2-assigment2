@@ -10,7 +10,7 @@ const UpcomingMoviePage = () => {
 
   return (
     <PageTemplate
-      title="Upcoming Movies"
+      title="Latest Movies"
       movies={upcoming} 
       action={(movie) => {
         return <AddToWatchListButton movie={movie} />;

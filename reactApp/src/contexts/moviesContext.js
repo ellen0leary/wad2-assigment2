@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, createContext, useReducer } from "react";
-import {getMovie, getUpcoming, addToFavourites, addMovieReview} from "../api/movies-api"
+import {getMovie, getLatest, addToFavourites, addMovieReview} from "../api/movies-api"
 import {AuthContext} from "./authorizationContext"
 
 export const MoviesContext = createContext(null);
@@ -63,15 +63,14 @@ const MoviesContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getUpcoming().then((movies) => {
-      console.log(movies);
+    getMovie().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    getMovie().then((movies) => {
+    getLatest().then((movies) => {
       dispatch({ type: "load-upcoming", payload: { movies } });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

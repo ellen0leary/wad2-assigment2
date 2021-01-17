@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
   if(req.query.action === 'latest'){
-    movieModel.find().sort({ release_date: 1}).then(movies =>res.status(200).send(movies)).catch(next);
+    movieModel.find().sort({ release_date: -1}).then(movies =>res.status(200).send(movies)).catch(next);
   } else {
   movieModel.find().then(movies => res.status(200).send(movies)).catch(next);}
 });
