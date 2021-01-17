@@ -64,7 +64,7 @@ const MoviesContextProvider = (props) => {
   };
 
   useEffect(() => {
-    getMovie().then((movies) => {
+    getUpcoming().then((movies) => {
       console.log(movies);
       dispatch({ type: "load", payload: { movies } });
     });

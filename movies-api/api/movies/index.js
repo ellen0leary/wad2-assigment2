@@ -8,6 +8,14 @@ import reviewModel from '../reviews/reviewModel';
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
+  console.log("start");
+  movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
+});
+
+router.get('/upcoming', (req, res, next) => {
+  var today = new Date();
+  const date = today.getFullYear+ '-' + (today.getMonth() + 1) + '-' + today.getDate();
+  console.log("here");
   movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
 });
 
@@ -45,10 +53,6 @@ router.post('/:id/reviews', async(req, res, next) =>{
   });
 });
 
-router.get('/upcoming', (req, res,next) => {
-  movieModel.find().filiter(m => !movieModel.findUpcoming()).then(movie => res.status(200).send(movie)).
-  then(console.log(res)).catch(next);
-});
 router.get('/genres', (req, res,next) => {
   getGenres().then(movies => res.status(200).send(movies))
   .catch((error) => next(error));
