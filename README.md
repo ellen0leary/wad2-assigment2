@@ -5,7 +5,7 @@ Name: Ellen O Leary (20084694 - Applied Computing)
 
 + Feature 1 - The user is able to see all information related to a movie, including its reviews, by clicking on in
 + Feature 2 - The user is able to write a review for a movie on their favourites list
-+ Feature 3 = The user is able to get the movies, from lastest to last realase
++ Feature 3 = The user is able to get the movies, from lastest realase
 + Feature 4  - The user is able is see a list of people and their details, by clicking on the card
 
 
