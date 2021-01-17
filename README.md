@@ -40,7 +40,18 @@ Give an overview of your web API design, perhaps similar to the following:
 | /api/movies  |  Gets a list of movies - if ?action=latest the movies will be sorted in asscending order |N/A   |  N/A |   
 |  /api/movies/{movieid} | Finds a movie with the same id  | N/A  |  N/A |   
 | /api/movies/{movieid}/reviews	  | Gets all reviews related to a movie  | Adds a review to a movie  | N/A  |  
+|/api/movies/geners|Gets genres from tmdb|N/A |N/A |
 |---|---|---|---|
+|/api/genres|gets all genres from the schema|N/A |N/A |
+|---|---|---|---|
+|/api/people/|gets all people in database|N/A |N/A |
+|/api/people/{peopleId}|gets the person with the matchong id|N/A |N/A |
+|---|---|---|---|
+|/api/review/|gets all reviews in database|N/A|N/A|
+|---|---|---|---|
+|api/user/|allows user to login or register|N/A|N/A|
+|api/user/{id}|N/A|allows the user to update user|N/A|
+api/user/{id}/favourites|allows a user to see favourites|allows the user to add a favourite|N/A|
 
 
 ## Security and Authentication
