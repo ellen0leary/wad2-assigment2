@@ -71,9 +71,10 @@ export const getMovie = () => {
       `api/users/${userId}/favourites/${movieId}`,{
         headers: {
           'Authorization': window.localStorage.getItem('token'),
+          'Content-Type': 'application/json'
         },
         method: 'post',
-        body: JSON.stringify({ "id": `${movieId}`})
+        body: JSON.stringify({ id: movieId})
     }
     ).then(res => res.json());
   };
@@ -87,7 +88,7 @@ export const getMovie = () => {
     ).then(res => res.json());
   };
 
-  export const getTrending = (userId) => {
+  export const getTrending = () => {
     return fetch(
         `api/people/`,{headers: {
          'Authorization': window.localStorage.getItem('token')

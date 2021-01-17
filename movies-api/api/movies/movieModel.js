@@ -40,6 +40,7 @@ MovieSchema.findUpcoming = function () {
   const date = today.getFullYear+ '-' + (today.getMonth() + 1) + '-' + today.getDate();
   if(this.release_date.getTime()> date.getTime()) return this;
 };
+
 export default mongoose.model('Movies', MovieSchema);
 
 

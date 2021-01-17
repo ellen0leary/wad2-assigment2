@@ -8,7 +8,7 @@ const MovieSchema = new Schema({
   id: { type: Number, required: true, unique: true },
   poster_path: { type: String },
   overview: { type: String },
-  release_date: { type: String },
+  release_date: { type: Date },
   original_title: { type: String },
   genre_ids: [{ type: Number }],
   original_language: { type: String },

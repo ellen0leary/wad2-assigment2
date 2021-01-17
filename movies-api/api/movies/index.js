@@ -37,6 +37,7 @@ router.post('/:id/reviews', async(req, res, next) =>{
     return;
   }
   newReview.reviews.push(req.body);
+
    await newReview.save(); 
    res.status(201).json({
     code: 201,
@@ -45,10 +46,19 @@ router.post('/:id/reviews', async(req, res, next) =>{
 });
 
 router.get('/upcoming', (req, res,next) => {
-  movieModel.findUpcoming().then(movie => res.status(200).send(movie)).catch(next);
+  movieModel.find().filiter(m => !movieModel.findUpcoming()).then(movie => res.status(200).send(movie)).
+  then(console.log(res)).catch(next);
 });
 router.get('/genres', (req, res,next) => {
   getGenres().then(movies => res.status(200).send(movies))
   .catch((error) => next(error));
+});
+
+router.get('/trending', (req, res, next) =>{
+  var Trend = new Array(5);
+  for(var i = 0; i< 20; i++){
+    const num = Math.floor(Math.random() * Math.floor(20));
+    Trend[i] = num;
+  }
 });
 export default router;

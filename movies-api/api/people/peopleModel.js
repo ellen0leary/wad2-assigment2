@@ -8,7 +8,7 @@ const PeopleSchema = new Schema({
     deathday : {type: String},
     id: {type: Number},
     name : {type: String},
-    also_know_as : [{type:String}],
+    also_known_as : [{type:String}],
     gender: {type: Number},
     biography: {type: String},
     popularity : {type: Number},
